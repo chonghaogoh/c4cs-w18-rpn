@@ -1,9 +1,19 @@
+#!/usr/bin/env python
+
 def calculate(arg):
-    pass 
+    stack = list()
+    for token in arg.split():
+        try:
+            value = int(token)
+            stack.append(value)
+        except ValueError:
+            arg1 = stack.pop()
+            arg2 = stack.pop()
+            return arg1 + arg2
 
 def main():
     while True:
-        calculate(input('rpm calc> '))
+        print(calculate(input('rpm calc> ')))
 
 if __name__ == '__main__':
     main()
