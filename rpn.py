@@ -9,11 +9,12 @@ def calculate(arg):
         except ValueError:
             arg1 = stack.pop()
             arg2 = stack.pop()
-            return arg1 + arg2
+            result = arg1 + arg2
+            stack.append(result)
 
 def main():
     while True:
-        print(calculate(input('rpm calc> ')))
+        print(calculate(input('rpn calc> ')))
 
 if __name__ == '__main__':
     main()
