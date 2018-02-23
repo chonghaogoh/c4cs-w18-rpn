@@ -5,6 +5,8 @@ import operator
 operators = {
     '+': operator.add,
     '-': operator.sub,
+    '*': operator.mul,
+    '/': operator.floordiv,
 }
 
 def calculate(arg):
@@ -19,10 +21,9 @@ def calculate(arg):
             arg1 = stack.pop()
             result = function(arg1, arg2)
             stack.append(result)
-        print(stack)
     if len(stack) != 1:
         raise TypeError 
-        
+
     return stack.pop()
 
 def main():

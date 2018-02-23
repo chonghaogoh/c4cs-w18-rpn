@@ -14,3 +14,18 @@ class TestBasics(unittest.TestCase):
     def test_toomany(self):
         with self.assertRaises(TypeError):
             result = rpn.calculate('1 2 3 +')
+    def testMul(self):
+        result = rpn.calculate('2 2 *')
+        self.assertEqual(4, result)
+    def testDiv(self):
+        result = rpn.calculate('8 4 /')
+        self.assertEqual(2, result)
+    def testMul2(self):
+        result = rpn.calculate('8 3 * 2 *')
+        self.assertEqual(48, result)
+    def testDiv2(self):
+        result = rpn.calculate('48 3 / 4 /')
+        self.assertEqual(4, result)
+    def testChain(self):
+        result = rpn.calculate('2 2 + 1 - 3 *')
+        self.assertEqual(9, result)
